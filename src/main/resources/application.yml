@@ -1,0 +1,37 @@
+spring:
+  #MySQL
+  datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8&useUnicode=true&amp&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true&allowMultiQueries=true
+      username: root
+      password: 
+      type: com.alibaba.druid.pool.DruidDataSource
+      druid:
+         initial-size: 10
+         max-active: 100
+         min-idle: 10
+         max-wait: 60000
+         pool-prepared-statements: true
+         max-pool-prepared-statement-per-connection-size: 20
+         time-between-eviction-runs-millis: 60000
+         min-evictable-idle-time-millis: 300000
+         validation-query: SELECT 1 FROM DUAL
+         test-while-idle: true
+         test-on-borrow: false
+         test-on-return: false
+
+# MYBATIS
+mybatis:
+   type-aliases-package: com.youzidata.api.bean
+   mapper-locations: /mapper/**/*.xml
+   configuration:
+      lazy-loading-enabled: true
+      aggressive-lazy-loading: true
+      map-underscore-to-camel-case: true
+      jdbc-type-for-null: NULL
+
+server:
+  port: 8081
+
+
+ 
