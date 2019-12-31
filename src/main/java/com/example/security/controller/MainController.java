@@ -5,6 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 @Controller
 public class MainController {
 
@@ -19,8 +22,9 @@ public class MainController {
     }
 
     @RequestMapping("/login")
-    public String login() {
-        return "login";
+    public void login(HttpServletResponse response) throws IOException {
+        response.sendRedirect("http://10.0.253.144:81/#/index");
+//        return "login";
     }
 
     @RequestMapping("/login-error")

@@ -36,6 +36,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
+//                .loginPage("/login")
+                //登录成功的处理器
+//                .successHandler((req, resp, authentication) -> {
+//                    resp.setContentType("application/json;charset=utf-8");
+//                    RequestCache cache = new HttpSessionRequestCache();
+//                    SavedRequest savedRequest = cache.getRequest(req, resp);
+//                    String url;
+//                    if((savedRequest==null)){
+//                        url = "/hello";
+//                    }else{
+//                        url = savedRequest.getRedirectUrl();
+//                    }
+//                    resp.sendRedirect(url);
+//                })
+                .defaultSuccessUrl("http://10.0.253.144:81/#/index")
+                .permitAll()
 //                .loginPage("/login").failureUrl( "/login-error" )
                 .and()
 //                .exceptionHandling().accessDeniedPage( "/401" )
