@@ -12,7 +12,7 @@ public class ProductTestController {
     @RequestMapping("/info")
     @ResponseBody
     public String productInfo() {
-        String currentUser = "";
+        String currentUser;
         Object principl = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if(principl instanceof UserDetails) {
             currentUser = ((UserDetails)principl).getUsername();

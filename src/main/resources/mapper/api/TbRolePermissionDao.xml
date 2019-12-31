@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.security.dao.TbRolePermissionDao">
+
+    <select id="getRolePermissions" resultType="com.example.security.entity.TbRolePermission">
+        SELECT t.role_name, t.role_enname, p.`name` AS permission_name, p.enname AS permission_enname, p.url AS permission_url
+        FROM (
+            SELECT r.`name` AS role_name,r.enname AS role_enname,rp.permission_id AS permission_id
+                FROM tb_role_permission AS rp
+                LEFT JOIN tb_role AS r
+                ON rp.role_id = r.id) AS t
+        LEFT JOIN tb_permission AS p
+        ON t.permission_id=p.id;
+    </select>
+
+</mapper>

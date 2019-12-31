@@ -2,9 +2,9 @@ spring:
   #MySQL
   datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8&useUnicode=true&amp&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true&allowMultiQueries=true
+      url: jdbc:mysql://10.0.110.249:3306/runway_test?serverTimezone=GMT%2B8&useUnicode=true&amp&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true&allowMultiQueries=true
       username: root
-      password: 
+      password: 123456
       type: com.alibaba.druid.pool.DruidDataSource
       druid:
          initial-size: 10
@@ -22,7 +22,7 @@ spring:
 
 # MYBATIS
 mybatis:
-   type-aliases-package: com.youzidata.api.bean
+   type-aliases-package: com.example.security.entity
    mapper-locations: /mapper/**/*.xml
    configuration:
       lazy-loading-enabled: true
