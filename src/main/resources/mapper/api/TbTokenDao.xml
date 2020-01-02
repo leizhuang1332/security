@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.security.dao.TbTokenDao">
+
+    <select id="insert">
+        INSERT INTO tb_token(username,token) VALUES (#{username}, #{token});
+    </select>
+
+    <select id="selectOne" resultType="com.example.security.entity.TbToken">
+        SELECT * FROM tb_token
+        <where>
+            <if test="username != null">
+                username=#{username}
+            </if>
+            <if test="token != null">
+                token = #{token}
+            </if>
+        </where>
+        AND isout = 0;
+    </select>
+
+    <select id="update">
+        UPDATE tb_token SET isout = #{isout} WHERE token = #{token}
+    </select>
+
+</mapper>
